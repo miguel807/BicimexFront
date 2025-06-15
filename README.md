@@ -27,7 +27,7 @@ Aplicación interactiva para gestión de comentarios y sugerencias sobre product
 ## Instalación 🛠️
 
 ```bash
-git clone https://github.com/tu-usuario/BicimexFront.git
+git clone https://github.com/miguel807/BicimexFront.git
 cd bicimexFront
 git checkout master
 git pull
