@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../services/api";
 import { rutes } from "../../config/rutes";
-import { toast } from "react-toastify/unstyled";
 import { useToast } from "../libs/toastProvider";
 
 const categories = ["Feature", "UI", "UX", "Enhancement", "Bug"];

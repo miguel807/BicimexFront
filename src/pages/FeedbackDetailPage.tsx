@@ -59,6 +59,7 @@ const FeedbackDetailPage = () => {
   const apiService = new ApiService();
 
   const fetchFeedback = async () => {
+    console.log(loading)
     setLoading(true);
     try {
       const response = await apiService.get(`${rutes.data.feedback}${id}/`);
@@ -73,6 +74,7 @@ const FeedbackDetailPage = () => {
             //@ts-ignore
             .sort(
               (a: any, b: any) =>
+               //@ts-ignore
                 new Date(a.created_at) - new Date(b.created_at)
             ),
         }))
@@ -279,6 +281,7 @@ const FeedbackDetailPage = () => {
                 <div className="ml-8 pl-6 border-l-2 border-[#F2F4FF]">
                   {/* @ts-ignore */}
                   {comment?.replies.map((reply) => (
+                     //@ts-ignore
                     <div key={reply?.id} className="mb-6 pt-4">
                       <div className="flex items-start">
                         <img
@@ -298,6 +301,7 @@ const FeedbackDetailPage = () => {
                             </div>
                             <button
                               onClick={() =>
+                                 //@ts-ignore
                                 handleReply(reply.user.username, reply?.id)
                               }
                               className="text-[#4661E6] bg-transparent font-semibold hover:underline"
@@ -307,6 +311,7 @@ const FeedbackDetailPage = () => {
                           </div>
                           <p className="text-[#647196]">
                             <span className="font-bold text-[#AD1FEA]">
+                              {/*@ts-ignore*/}
                               @{reply?.replying_to?.username}
                             </span>{" "}
                             {reply.content}

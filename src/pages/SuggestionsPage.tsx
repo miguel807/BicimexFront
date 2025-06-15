@@ -7,12 +7,10 @@ import ApiService from "../services/api";
 
 import SpinnerTable from "../components/UI/SpinnerTable";
 import EmptyFeedback from "../components/EmptyFeedback";
-import { useToast } from "../libs/toastProvider";
 import MobileDrawer from "../components/MobileDrawer";
 
 const SuggestionsPage = () => {
   const apiService = new ApiService();
-  const showToast = useToast();
   const [data, setData] = useState<any>([]);
   const [selectedTag, setSelectedTag] = useState<string>("All");
   const [loading, setLoading] = useState<boolean>(false);
