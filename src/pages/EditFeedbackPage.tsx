@@ -9,11 +9,13 @@ const EditFeedbackPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const showToast = useToast();
+
   const location = useLocation(); 
   const apiService = new ApiService();
   const feedback = location?.state?.feedback;
- 
+ const [isDeleting, setIsDeleting] = useState(false);
   const [isLoading,setIsLoading] = useState(false)
+
   const [formData, setFormData] = useState({
     title: feedback?.title || "",
     category: feedback?.category || "feature",
@@ -58,7 +60,7 @@ const EditFeedbackPage = () => {
   const handleDelete = async () => {
     if (!feedback) return;
     
-    setIsLoading(true);
+    setIsDeleting(true)
     try {
       apiService
     .delete(`${rutes.data.feedback}${id}/`) 
@@ -68,7 +70,7 @@ const EditFeedbackPage = () => {
       console.error("Error deleting feedback:", error);
       showToast("error", "Failed to delete feedback");
     } finally {
-      setIsLoading(false);
+      setIsDeleting(false)
     }
   };
 
@@ -328,7 +330,7 @@ const EditFeedbackPage = () => {
                     disabled={isLoading }
                     className="bg-[#D73737] hover:bg-[#E98888] text-white font-bold py-2 px-4 rounded-md flex items-center justify-center min-w-[100px]"
                   >
-                    {isLoading ? (
+                    {isDeleting ? (
                       <>
                         <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
