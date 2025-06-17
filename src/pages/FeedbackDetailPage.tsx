@@ -6,7 +6,7 @@ import { useToast } from "../libs/toastProvider";
 
 const data = {
   currentUser: {
-    image: "../../public/user-images/image-zena.jpg",
+    image: "/user-images/image-zena.jpg",
     name: "Zena Kelley",
     username: "velvetround",
   },
