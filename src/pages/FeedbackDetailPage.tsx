@@ -285,7 +285,7 @@ const FeedbackDetailPage = () => {
                     <div key={reply?.id} className="mb-6 pt-4">
                       <div className="flex items-start">
                         <img
-                          src={reply.user.image}
+                          src={data.currentUser.image}
                           alt={reply.user.name}
                           className="w-10 h-10 rounded-full mr-4"
                         />
